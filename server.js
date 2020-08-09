@@ -1,6 +1,7 @@
 const express = require('express')
 const { EDESTADDRREQ } = require('constants')
 const app = express()
+const port = process.env.PORT || 3000
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
@@ -28,6 +29,6 @@ io.on('connection',socket => {
     })
 })
 
-server.listen(3000,()=>{
-    console.log("server started at port 3000")
+server.listen(port,()=>{
+    console.log(`server started at port ${port}`)
 })
